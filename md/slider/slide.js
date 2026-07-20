@@ -53,11 +53,11 @@ class Slide extends React.PureComponent {
         let cite = this.props.content.split('\n')[3];
 
         html = `<div class='first-slide'>
-          <div class='course'>EE 598 : Automated Mathematics : W26</div>
+          <div class='course'>PIMS 2026 Short Course</div>
           <div class='slide-title'>${title}</div>
           <div class='author'>
-            Prof. Eric Klavins</br>
-            Electrical and Computer Engineering</br>
+            Prof. Eric Klavins (Instructor)</br></br>
+            Luz Elena Grisales Gómez and Nat Hurtig (Teaching Assistants)</br></br>
             University of Washington</br>
             Seattle, WA</br>
           </div>
