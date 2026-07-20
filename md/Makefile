@@ -22,6 +22,11 @@ show:
 	echo $(MD_DIRS)
 	echo $(MD_FILES)
 
+deploy: all
+	rsync -a --delete $(MD_DIR)/ slider/src/
+	bash slider/deploy.sh
+
+
 clean:
 	rm -r $(MD_DIR)/*
 
