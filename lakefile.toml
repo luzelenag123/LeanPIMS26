@@ -1,7 +1,7 @@
-name = "LeanW26"
+name = "LeanPIMS26"
 version = "0.1.0"
 keywords = ["math"]
-defaultTargets = ["LeanW26"]
+defaultTargets = ["LeanPIMS26"]
 
 [leanOptions]
 pp.unicode.fun = true # pretty-prints `fun a ↦ b`
@@ -15,6 +15,6 @@ name = "mathlib"
 scope = "leanprover-community"
 
 [[lean_lib]]
-name = "LeanW26"
+name = "LeanPIMS26"
 
 
