@@ -1,4 +1,4 @@
-CHAPTER_DIR := ../LeanW26
+CHAPTER_DIR := ../LeanPIMS26
 MD_DIR := src
 
 LEAN_DIRS := $(wildcard $(CHAPTER_DIR)/*)
