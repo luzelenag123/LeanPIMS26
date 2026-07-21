@@ -269,6 +269,7 @@ theorem separation_compact_closed
 
 /-
 Main Theorems (continued)
+===
 -/
 theorem dual_of_dual
   (X : Set E) :
