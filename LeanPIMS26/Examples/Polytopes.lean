@@ -1,4 +1,5 @@
 import mathlib.tactic
+import Mathlib.Analysis.InnerProductSpace.Continuous
 
 namespace LeanW26
 
@@ -45,8 +46,8 @@ noncomputable section
 We'll also need to define the space in which our polytopes will live:
 -/
 variable {E : Type*}
-[NormedAddCommGroup E] [InnerProductSpace ℝ E]
-[FiniteDimensional ℝ E] [DecidableEq E]
+  [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  [FiniteDimensional ℝ E] [DecidableEq E]
 
 /-
 Defining V-Polytopes
@@ -83,11 +84,14 @@ Proving isCompact, isConvex
 ===
 We can write simple theorems like the following inside this namespace.
 -/
+
+
 theorem isCompact (P : VPolytope E) : IsCompact P.carrier := by
   simpa [carrier] using
-      (Set.Finite.isCompact_convexHull
-        (s := (↑P.points : Set E))
-        (P.points.finite_toSet))
+    (P.points.finite_toSet).isCompact_convexHull
+      (𝕜 := ℝ)
+      (s := (↑P.points : Set E))
+
 
 theorem isConvex (P : VPolytope E) : Convex ℝ P.carrier := by
   simpa [VPolytope.carrier] using
@@ -133,8 +137,9 @@ def carrier (h : Halfspace E) : Set (E) :=
 theorem isClosed (H : Halfspace E) : IsClosed H.carrier := by
   dsimp [carrier]
   apply isClosed_le
-  · exact continuous_const.inner continuous_id
+  · exact Continuous.inner continuous_const continuous_id
   · exact continuous_const
+
 /-
 Exercise
 ===
